@@ -7,11 +7,7 @@ apply plugin: 'application'
 apply plugin: 'jacoco'
  
 
-mainClassName = 'src.main.java.Main'
-
-test {
-  exclude '**/BlackBoxGiven.class'
-}
+mainClassName = 'main.java.DesignPatterns.DesignPatterns'
 
 // In this section you declare where to find the dependencies of your project
 repositories {

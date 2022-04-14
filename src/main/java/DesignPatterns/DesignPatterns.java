@@ -1,11 +1,11 @@
-package src.main.java;
+package main.java.DesignPatterns;
 
 
 
 
 
 
-public class Main {
+public class DesignPatterns {
     
     
 //    Main(){
@@ -26,7 +26,7 @@ public class Main {
     
     public static void main(String[] args) {
         
-     Main a = new Main();
+     DesignPatterns a = new DesignPatterns();
      a.hello();
       
     }
