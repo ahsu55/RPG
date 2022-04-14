@@ -1,4 +1,4 @@
-package main.java.DesignPatterns;
+package main.java.designpatterns;
 
 
 
@@ -8,26 +8,24 @@ package main.java.DesignPatterns;
 public class DesignPatterns {
     
     
-//    Main(){
-        
-  //  }
-    
-    // initial setup 
-    public String hello(){
+    /** initial setup.
+     *  
+     * @return hello world
+     */
+    public String hello() {
         String testing = "Hello World";
         System.out.println(testing);
         return testing;
     }
-
     
-    
-    
-    
-    
+    /**main class.
+     * 
+     * @param args arguments
+     */
     public static void main(String[] args) {
         
-     DesignPatterns a = new DesignPatterns();
-     a.hello();
+        DesignPatterns a = new DesignPatterns();
+        a.hello();
       
     }
 }

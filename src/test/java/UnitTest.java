@@ -2,8 +2,9 @@ package test.java;
 
 import static org.junit.Assert.assertEquals;
 
+import main.java.designpatterns.DesignPatterns;
 import org.junit.Test;
-import main.java.DesignPatterns.DesignPatterns;
+
 //import org.junit.runner.RunWith;
 //import org.junit.runners.Parameterized;
 
