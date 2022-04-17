@@ -2,7 +2,7 @@ package test.java;
 
 import static org.junit.Assert.assertEquals;
 
-import main.java.designpatterns.DesignPatterns;
+import main.java.rpg.Rpg;
 import org.junit.Test;
 
 //import org.junit.runner.RunWith;
@@ -13,7 +13,7 @@ import org.junit.Test;
 public class UnitTest {
 
 
-    DesignPatterns hello;
+    Rpg hello;
     
     /** Set up before runtime.
      * @author ahsu5
@@ -21,7 +21,7 @@ public class UnitTest {
     
     @org.junit.Before
     public void setUp() throws Exception {
-        hello = new DesignPatterns();
+        hello = new Rpg();
         
    
 

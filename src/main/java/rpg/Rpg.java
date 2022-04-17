@@ -1,11 +1,11 @@
-package main.java.designpatterns;
+package main.java.rpg;
 
 
 
 
 
 
-public class DesignPatterns {
+public class Rpg {
     
     
     /** initial setup.
@@ -24,7 +24,7 @@ public class DesignPatterns {
      */
     public static void main(String[] args) {
         
-        DesignPatterns a = new DesignPatterns();
+        Rpg a = new Rpg();
         a.hello();
       
     }

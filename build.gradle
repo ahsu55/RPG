@@ -7,7 +7,8 @@ apply plugin: 'application'
 apply plugin: 'jacoco'
  
 
-mainClassName = 'main.java.DesignPatterns.DesignPatterns'
+mainClassName = 'main.java.rpg.Rpg'
+compileJava.options.encoding = 'UTF-8'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
