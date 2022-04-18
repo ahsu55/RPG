@@ -1,8 +1,8 @@
 package main.java.rpg;
 
-
-
-
+import main.java.character.*;
+import main.java.classType.Paladin;
+import main.java.classType.Warrior;
 
 
 public class Rpg {
@@ -23,9 +23,17 @@ public class Rpg {
      * @param args arguments
      */
     public static void main(String[] args) {
-        
-        Rpg a = new Rpg();
-        a.hello();
+        GameCharacter Azshara = new Elf("Azshara");
+        GameCharacter Jaina = new Human("Jaina");
+        GameCharacter Thrall = new Orc("Thrall");
+        GameCharacter newThrall = new Warrior(Thrall);
+        GameCharacter newAzshara =new Warrior(Azshara);
+        GameCharacter newJaina = new Paladin(Jaina);
+       // System.out.println(Azshara.toString());
+      //  System.out.println(Jaina.toString());
+    //    System.out.println(Thrall.toString());
+    //    System.out.println(newThrall.toString());
+        System.out.println(newJaina.toString());
       
     }
 }
