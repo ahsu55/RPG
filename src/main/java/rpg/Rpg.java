@@ -5,7 +5,7 @@ import main.java.equipment.ChestArmor;
 import main.java.equipment.ClothBoots;
 import main.java.equipment.Equipment;
 import main.java.equipment.LongSword;
-import main.java.levelUp.LevelUp;
+// import main.java.levelUp.LevelUp;
 import main.java.classType.Paladin;
 import main.java.classType.Warrior;
 
