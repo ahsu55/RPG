@@ -1,26 +1,23 @@
-package main.java.classType;
+/**
+
+package main.java.levelUp;
 
 import main.java.character.GameCharacter;
+import main.java.classType.ClassType;
 
-import javax.swing.*;
-
-public abstract class classType extends GameCharacter {
-
+public abstract class LevelUp extends GameCharacter {
     protected GameCharacter character;
-    protected String skillEffect;
-
-    public classType(GameCharacter gameCharacter, int attack, int defense, int health, int mana, int agi) {
+    public LevelUp(GameCharacter gameCharacter, int attack, int defense, int health, int mana, int agi) {
         super(attack,defense,health,mana,agi);
         this.character=gameCharacter;
-    }
 
-    public String bio(){
-        return character.bio()+"- Skill: "+ability()+"\n";
+
     }
 
     public int getDefense(){
         return character.getDefense()+defense;
     }
+
     public int getAttack(){
         return character.getAttack()+attack;
     }
@@ -37,15 +34,11 @@ public abstract class classType extends GameCharacter {
         return character.getAgility()+agility;
     }
 
-    public String getSkill() {return skill;}
-
-    public String getSkillEffect(){
-        return skillEffect;
-    }
-
     public String getName(){
         return character.getName();
     }
 
 
+
 }
+*/

@@ -2,7 +2,7 @@ package main.java.classType;
 
 import main.java.character.GameCharacter;
 
-public class Archer extends classType {
+public class Archer extends ClassType {
 
 
     public Archer(GameCharacter race) {
@@ -15,6 +15,6 @@ public class Archer extends classType {
     }
     @Override
     public String ability(){
-        return skill + ": "+ skillEffect;
+        return "- Skill: "+skill + ": "+ skillEffect;
     }
 }

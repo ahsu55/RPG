@@ -10,33 +10,36 @@ package main.java.character;
 // Attack have chance to fail  (dodge?)
 // Attack deal min damage of 1
 
-    public abstract class GameCharacter{
+import main.java.equipment.Equipment;
+
+import java.util.HashMap;
+
+public abstract class GameCharacter{
 
         protected int attack;
         protected int defense;
         protected int health;
         protected int mana;
         protected int agility;
-        protected String race="";
+        protected String race;
         protected String passiveSkill;
         protected String passiveSkillInfo;
         protected String skill;
         protected String skillEffect;
         protected String name;
+        protected HashMap <String,Equipment> equiptment = new HashMap<>();
+
 
 
         public abstract String ability();
+
 
         public String bio(){
 
             return "Name: "+ name +"\nRace: "+race+"\n";
         }
 
-        public String toString(){
-            return "=========Bio=========\n"+bio()+"========Stats========\n"+ "Attack: "+
-                    getAttack()+"\nDefense: "+getDefense()+"\nHealth: "+getHealth()+"\nMana: "+getMana()+
-                    "\nAgility: "+getAgility()+"\n====Passive Skill====\n"+getPassiveSkill()+": "+getPassiveSkillInfo()+"\n";
-        }
+    //    public abstract String equipment();
 
         public GameCharacter(int attack, int defense, int health, int mana, int agi){
             this.attack=attack;
@@ -69,6 +72,10 @@ package main.java.character;
             return skill;
         }
 
+        public void wearEquipment (Equipment equipment){
+            this.equiptment.put(equipment.getType(),equipment);
+        }
+
         public String getSkillEffect(){
             return skillEffect;
         }
@@ -83,6 +90,17 @@ package main.java.character;
         public String getName(){
             return name;
         }
+
+
+
+    public String toString(){
+        return "=========Bio=========\n"+bio()+"========Stats========\n"+ "Attack: "+
+                getAttack()+"\nDefense: "+getDefense()+"\nHealth: "+getHealth()+"\nMana: "+getMana()+
+                "\nAgility: "+getAgility()+"\n====Passive Skill====\n"+getPassiveSkill()+": "+getPassiveSkillInfo();
+    }
+
+
+
 
 
 
