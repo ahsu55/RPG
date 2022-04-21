@@ -91,7 +91,24 @@ public abstract class GameCharacter{
             return name;
         }
 
+        public void levelUp() {
+            if (attack / 10 == 0)
+                attack = attack + 1;
+            else attack += attack / 10;
+            if (defense / 10 == 0)
+                defense = defense + 1;
+            else defense += defense / 10;
+            if (health / 5 == 0)
+                health = health + 1;
+            else health += health / 5;
+            if (mana / 5 == 0)
+                mana = mana + 1;
+            else mana += mana / 5;
+            if (agility / 10 == 0)
+                agility = agility + 1;
+            else agility += agility / 10;
 
+        }
 
     public String toString(){
         return "=========Bio=========\n"+bio()+"========Stats========\n"+ "Attack: "+
