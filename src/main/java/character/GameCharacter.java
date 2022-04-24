@@ -21,6 +21,7 @@ public abstract class GameCharacter{
         protected int health;
         protected int mana;
         protected int agility;
+        protected int level=1;
         protected String race;
         protected String passiveSkill;
         protected String passiveSkillInfo;
@@ -36,7 +37,7 @@ public abstract class GameCharacter{
 
         public String bio(){
 
-            return "Name: "+ name +"\nRace: "+race+"\n";
+            return "Name: "+ name +"\nRace: "+race+"\n"+"Level: "+level+"\n";
         }
 
     //    public abstract String equipment();
@@ -107,6 +108,7 @@ public abstract class GameCharacter{
             if (agility / 10 == 0)
                 agility = agility + 1;
             else agility += agility / 10;
+            level++;
 
         }
 

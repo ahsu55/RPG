@@ -8,6 +8,7 @@ import main.java.equipment.LongSword;
 // import main.java.levelUp.LevelUp;
 import main.java.classType.Paladin;
 import main.java.classType.Warrior;
+import main.java.factory.CharacterFactory;
 
 import java.util.HashMap;
 
@@ -30,13 +31,18 @@ public class Rpg {
      * @param args arguments
      */
     public static void main(String[] args) {
+        CharacterFactory newCharacter = new CharacterFactory();
+        main.java.character.GameCharacter player;
+        player = newCharacter.makeCharacterRace("Jaina","h");
+        System.out.println(player+"\n\n");
+        player = newCharacter.makeCharacterClass("p");
   //      GameCharacter Azshara = new Elf("Azshara");
-        GameCharacter Jaina = new Human("Jaina");
+   //     GameCharacter Jaina = new Human("Jaina");
    //     GameCharacter Thrall = new Orc("Thrall");
     //    GameCharacter newThrall = new Warrior(Thrall);
      //   GameCharacter newAzshara =new Warrior(Azshara);
    //     GameCharacter newJaina = new Paladin(Jaina);
-        Jaina = new Paladin(Jaina);
+   //     Jaina = new Paladin(Jaina);
       //  Jaina = new LevelUp(Jaina);
 
        // System.out.println(Azshara.toString());
@@ -47,21 +53,22 @@ public class Rpg {
     //    System.out.println(Jaina.toString());
        // Jaina = new LongSword(Jaina);
     //    System.out.println(Jaina.toString());
-        Equipment eq = new LongSword();
+    //    Equipment eq = new LongSword();
      //   System.out.println(eq.toString());
     //    System.out.println(Jaina.toString());
-        Jaina.wearEquipment(new LongSword());
+        System.out.println(player);
+        player.wearEquipment(new LongSword());
     //    System.out.println(Jaina.toString());
-        Jaina.wearEquipment(new ChestArmor());
+        player.wearEquipment(new ChestArmor());
     //    System.out.println(Jaina.toString());
-        Jaina.wearEquipment(new ClothBoots());
-        System.out.println(Jaina);
-        Jaina.levelUp();
-        Jaina.levelUp();
-        Jaina.levelUp();
-        Jaina.levelUp();
+        player.wearEquipment(new ClothBoots());
+        System.out.println(player+"\n\n");
+        player.levelUp();
+        player.levelUp();
+        player.levelUp();
+        player.levelUp();
 
-        System.out.println(Jaina);
+        System.out.println(player);
 
         //   HashMap <String,String> eq = new HashMap<>();
        // eq.put("Sword","Long Sword");
