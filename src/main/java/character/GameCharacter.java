@@ -37,7 +37,7 @@ public abstract class GameCharacter{
 
         public String bio(){
 
-            return "Name: "+ name +"\nRace: "+race+"\n"+"Level: "+level+"\n";
+            return "Name: "+ name +"\nRace: "+race+"\n";
         }
 
     //    public abstract String equipment();
@@ -56,11 +56,13 @@ public abstract class GameCharacter{
         public int getAttack(){
             return attack;
         }
-
         public int getHealth(){
             return health;
         }
 
+        public int getLevel(){
+            return level;
+    }
         public int getMana(){
             return mana;
         }
@@ -108,12 +110,12 @@ public abstract class GameCharacter{
             if (agility / 10 == 0)
                 agility = agility + 1;
             else agility += agility / 10;
-            level++;
+            this.level=level+1;
 
         }
 
     public String toString(){
-        return "=========Bio=========\n"+bio()+"========Stats========\n"+ "Attack: "+
+        return "=========Bio=========\n"+"Level: "+getLevel()+"\n"+bio()+"========Stats========\n"+ "Attack: "+
                 getAttack()+"\nDefense: "+getDefense()+"\nHealth: "+getHealth()+"\nMana: "+getMana()+
                 "\nAgility: "+getAgility()+"\n====Passive Skill====\n"+getPassiveSkill()+": "+getPassiveSkillInfo();
     }
