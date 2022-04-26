@@ -5,12 +5,16 @@ public abstract class Monster {
     protected int defense;
     protected int health;
     protected int exp;
+    protected String name;
+    protected int level;
 
-    public Monster(int attack,int defense,int health,int stage){
+    public Monster(int attack,int defense,int health,int stage,String name){
         this.attack=attack;
         this.defense=defense;
         this.health=health;
         this.exp=getExp(stage);
+        this.name=name;
+        this.level=stage;
     }
 
     public int getDefense(){
@@ -51,7 +55,7 @@ public abstract class Monster {
 
     @Override
     public String toString() {
-        return "Monster:\n" +
+        return "====level "+ level +" "+name+"====\n" +
                 "attack=" + attack +
                 "\ndefense=" + defense +
                 "\nhealth=" + health+

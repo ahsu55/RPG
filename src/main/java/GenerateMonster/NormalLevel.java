@@ -2,16 +2,17 @@ package main.java.GenerateMonster;
 
 import main.java.monster.Monster;
 import main.java.monster.NormalMonster;
+import main.java.monster.RandomMonster;
 
-public class NormalStage implements Stage {
-     StageState state;
+public class NormalLevel implements MonsterLevel {
+     Stage state;
      int stageLevel;
-     public NormalStage(StageState newStateStage){
+     public NormalLevel(Stage newStateStage){
           state=newStateStage;
           this.stageLevel=newStateStage.stageLevel;
      }
      @Override
      public Monster GenerateMonster() {
-          return new NormalMonster(stageLevel);
+          return new NormalMonster(stageLevel, RandomMonster.RandomMonster());
      }
 }

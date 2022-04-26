@@ -1,13 +1,12 @@
 package main.java.rpg;
 
-import main.java.GenerateMonster.StageState;
+import main.java.GenerateMonster.Stage;
 import main.java.equipment.ChestArmor;
 import main.java.equipment.ClothBoots;
 import main.java.equipment.LongSword;
 // import main.java.levelUp.LevelUp;
 import main.java.factory.CharacterFactory;
 import main.java.monster.Monster;
-import main.java.monster.NormalMonster;
 
 
 public class Rpg {
@@ -68,11 +67,11 @@ public class Rpg {
         System.out.println(player);
 
         Monster monster;
-        monster = new StageState(2).generateMonster();
+        monster = new Stage(2).generateMonster();
         System.out.println(monster);
-        monster = new StageState(4).generateMonster();
+       monster = new Stage(4).generateMonster();
         System.out.println(monster);
-        monster = new StageState(5).generateMonster();
+        monster = new Stage(5).generateMonster();
         System.out.println(monster);
         //   HashMap <String,String> eq = new HashMap<>();
        // eq.put("Sword","Long Sword");
