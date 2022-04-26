@@ -9,8 +9,11 @@ public class Orc extends GameCharacter{
         passiveSkillInfo="Gain additional 10% of the Defense";
     }
 
-    @Override
     public String ability() {
         return "";
+    }
+
+    public String passive() {
+        return "- Passive skill: "+passiveSkill+": "+passiveSkillInfo;
     }
 }

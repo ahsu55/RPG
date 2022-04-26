@@ -12,4 +12,8 @@ public class Human extends GameCharacter{
     public String ability() {
         return "";
     }
+
+    public String passive() {
+        return "- Passive skill: "+passiveSkill+": "+passiveSkillInfo;
+    }
 }

@@ -27,44 +27,25 @@ public class Rpg {
      * @param args arguments
      */
     public static void main(String[] args) {
+        /**
         CharacterFactory newCharacter = new CharacterFactory();
         main.java.character.GameCharacter player;
         player = newCharacter.makeCharacterRace("Jaina","h");
         System.out.println(player+"\n\n");
         player = newCharacter.makeCharacterClass("p");
-  //      GameCharacter Azshara = new Elf("Azshara");
-   //     GameCharacter Jaina = new Human("Jaina");
-   //     GameCharacter Thrall = new Orc("Thrall");
-    //    GameCharacter newThrall = new Warrior(Thrall);
-     //   GameCharacter newAzshara =new Warrior(Azshara);
-   //     GameCharacter newJaina = new Paladin(Jaina);
-   //     Jaina = new Paladin(Jaina);
-      //  Jaina = new LevelUp(Jaina);
-
-       // System.out.println(Azshara.toString());
-    //    System.out.println(Jaina.toString());
-    //    System.out.println(Thrall.toString());
-    //    System.out.println(newThrall.toString());
-  //      System.out.println(newJaina.toString());
-    //    System.out.println(Jaina.toString());
-       // Jaina = new LongSword(Jaina);
-    //    System.out.println(Jaina.toString());
-    //    Equipment eq = new LongSword();
-     //   System.out.println(eq.toString());
-    //    System.out.println(Jaina.toString());
         System.out.println(player);
         player.wearEquipment(new LongSword());
-    //    System.out.println(Jaina.toString());
         player.wearEquipment(new ChestArmor());
-    //    System.out.println(Jaina.toString());
         player.wearEquipment(new ClothBoots());
         System.out.println(player+"\n\n");
         player.levelUp();
         player.levelUp();
         player.levelUp();
         player.levelUp();
-
-        System.out.println(player);
+         */
+        DarkestSer ser = new DarkestSer();
+        ser.run();
+      //  System.out.println(player);
 
         Monster monster;
         monster = new Stage(2).generateMonster();

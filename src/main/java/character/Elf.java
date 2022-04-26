@@ -8,9 +8,11 @@ public class Elf extends GameCharacter{
         passiveSkill="Quickness";
         passiveSkillInfo="Gain additional 10% of the AGI";
     }
-    @Override
     public String ability() {
         return "";
     }
-    public String equipment(){return "";}
+
+    public String passive() {
+        return "- Passive skill: "+passiveSkill+": "+passiveSkillInfo;
+    }
 }

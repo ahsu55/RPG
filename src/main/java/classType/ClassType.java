@@ -16,7 +16,7 @@ public abstract class ClassType extends GameCharacter {
     }
 
     public String bio(){
-        return character.bio()+"- Skill: "+ability()+"\n"+equipment()+"\n";
+        return character.bio()+"- Skill: "+ability()+"\n"+equipment();
     }
 
 
@@ -64,7 +64,7 @@ public abstract class ClassType extends GameCharacter {
         }
         if (equiptment.containsKey("Feet")){
             eq.append(equiptment.get("Feet").toString());
-        }
+        }eq.append("\n");
         return eq.toString();
 
     }
