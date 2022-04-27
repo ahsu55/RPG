@@ -2,7 +2,11 @@ package main.java.classType;
 
 import main.java.character.GameCharacter;
 import main.java.equipment.Equipment;
+import main.java.poison.Poison;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 
 public abstract class ClassType extends GameCharacter {
@@ -16,9 +20,9 @@ public abstract class ClassType extends GameCharacter {
     }
 
     public String bio(){
-        return character.bio()+"- Skill: "+ability()+"\n"+equipment();
+        return character.bio()+ability()+"\n"+equipment();
     }
-
+    public void setClass(String classType) {character.setClass(classType);}
 
     public int getDefense(){
         return character.getDefense()+defense+getEquipmentDefense();
@@ -30,6 +34,13 @@ public abstract class ClassType extends GameCharacter {
 
     public int getHealth(){
         return character.getHealth()+health+getEquipmentHealth();
+    }
+
+    public int getCurrentHealth(){
+        return character.getCurrentHealth();
+    }
+    public int getCurrentMana(){
+        return character.getCurrentMana();
     }
 
     public int getMana(){
@@ -50,21 +61,78 @@ public abstract class ClassType extends GameCharacter {
         return character.getName();
     }
 
+    public void restoreAll(){
+        restoreMana(getMana());
+        restoreHealth(getHealth());
+    }
+
+    public void init(){
+        character.setCurrentMana(getMana());
+        character.setCurrentHealth(getHealth());
+    }
+
+
+    public void restoreMana(int value){
+        if (character.getCurrentMana()+value<=getMana()){
+            System.out.println("Your mana now restore to "+(character.getCurrentMana()+value)+"/"+getMana());
+            character.setCurrentMana(currentMana+value);
+        }else {
+            System.out.println("Your mana now restore to "+getMana()+"/"+getMana());
+            character.setCurrentMana(getMana());
+        }
+    }
+
+    public void useMana(int cost){
+        character.setCurrentMana(getMana()-cost);
+        System.out.println("You use "+cost+" mana MP: "+character.getCurrentMana()+"/"+getMana());
+    }
+
+    public void restoreHealth(int value){
+        if (character.getCurrentHealth()+value<=getHealth()){
+            System.out.println("Your health now restore to "+(character.getCurrentHealth()+value)+"/"+getHealth());
+            character.setCurrentHealth(currentHealth+value);
+        }else {
+            character.setCurrentHealth(getHealth());
+            System.out.println("Your health now restore to "+getHealth()+"/"+getHealth());
+        }
+    }
+
+    public void reduceHealth(int damange){
+        character.setCurrentHealth(getHealth()-damange);
+        System.out.println("You took "+damange+" damages HP: "+character.getCurrentHealth()+"/"+getHealth());
+    }
+
+    public void usePoison(int idx){
+        if (poisons.get(idx-1).getHealth()>0)
+            restoreHealth(poisons.get(idx-1).getHealth());
+        if (poisons.get(idx-1).getMana()>0)
+            restoreMana(poisons.get(idx-1).getMana());
+        poisons.remove(idx-1);
+    }
+
+
+
     public String equipment(){
         StringBuilder eq = new StringBuilder();
         if (equiptment.size()==0){
             return "";
         }
         eq.append("=====Equipments======\n");
+        eq.append("Weapon: ");
         if (equiptment.containsKey("Weapon")){
             eq.append(equiptment.get("Weapon").toString()+"\n");
-        }
+        }else
+            eq.append("\n");
+        eq.append("Armor : ");
         if (equiptment.containsKey("Armor")){
             eq.append(equiptment.get("Armor").toString()+"\n");
-        }
+        }else
+            eq.append("\n");
+        eq.append("Feet  : ");
         if (equiptment.containsKey("Feet")){
-            eq.append(equiptment.get("Feet").toString());
-        }eq.append("\n");
+            eq.append(equiptment.get("Feet").toString()+"\n");
+        }else
+            eq.append("\n");
         return eq.toString();
 
     }

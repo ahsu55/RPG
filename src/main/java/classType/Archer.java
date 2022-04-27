@@ -8,6 +8,7 @@ public class Archer extends ClassType {
     public Archer(GameCharacter race) {
         super(race, 6,5,6,5,8 );
         name=race.getName();
+        setClass("Paladin");
         passiveSkill=race.getPassiveSkill();
         passiveSkillInfo=race.getPassiveSkillInfo();
         skill="Focus shot";
@@ -15,6 +16,6 @@ public class Archer extends ClassType {
     }
     @Override
     public String ability(){
-        return "- Skill: "+skill + ": "+ skillEffect;
+        return "Skill: "+skill + " - "+ skillEffect;
     }
 }

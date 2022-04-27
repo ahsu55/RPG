@@ -1,7 +1,6 @@
-package main.java.GenerateMonster;
+package main.java.generateMonster;
 
 import main.java.monster.Monster;
-import main.java.monster.RandomMonster;
 
 interface MonsterLevel {
      public Monster GenerateMonster();

@@ -15,19 +15,23 @@ import java.io.InputStreamReader;
 
 public class DarkestSer implements Runnable{
 
+    int level =0;
+
 
     @Override
     public void run() {
-      //  GameCharacter player;
+        GameCharacter player=null;
 
 
         System.out.println("Welcome to the Darkest SER");
         try {
-            GameCharacter player = initCharacter();
+            player = initCharacter();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+
+        System.out.println(player);
       //  player = newCharacter.makeCharacterRace();
 
       //  boolean alive=true;

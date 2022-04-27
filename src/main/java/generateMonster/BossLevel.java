@@ -1,4 +1,4 @@
-package main.java.GenerateMonster;
+package main.java.generateMonster;
 
 import main.java.monster.Boss;
 import main.java.monster.Monster;

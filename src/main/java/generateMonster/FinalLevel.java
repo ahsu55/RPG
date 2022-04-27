@@ -1,19 +1,18 @@
-package main.java.GenerateMonster;
+package main.java.generateMonster;
 
-import main.java.monster.MediumMonster;
+import main.java.monster.FinalBoss;
 import main.java.monster.Monster;
 import main.java.monster.RandomMonster;
 
-public class MediumLevel implements MonsterLevel {
+public class FinalLevel implements MonsterLevel {
      Stage state;
      int stageLevel;
-     public MediumLevel(Stage newStateStage){
+     public FinalLevel(Stage newStateStage){
           state=newStateStage;
           this.stageLevel=newStateStage.stageLevel;
      }
      @Override
      public Monster GenerateMonster() {
-          return new MediumMonster(stageLevel, RandomMonster.RandomMonster());
+          return new FinalBoss(stageLevel, RandomMonster.RandomMonster());
      }
-
 }

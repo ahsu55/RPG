@@ -8,6 +8,7 @@ public class Warrior extends ClassType {
     public Warrior(GameCharacter race) {
         super(race, 10,7,8,2,3 );
         name=race.getName();
+        setClass("Paladin");
         passiveSkill=race.getPassiveSkill();
         passiveSkillInfo=race.getPassiveSkillInfo();
         skill="Berserker";
@@ -16,6 +17,6 @@ public class Warrior extends ClassType {
     }
     @Override
     public String ability(){
-        return "- Skill: "+ skill + ": "+ skillEffect;
+        return "Skill: "+ skill + " - "+ skillEffect;
     }
 }

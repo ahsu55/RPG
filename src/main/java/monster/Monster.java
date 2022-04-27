@@ -4,6 +4,7 @@ public abstract class Monster {
     protected int attack;
     protected int defense;
     protected int health;
+    protected int currentHealth;
     protected int exp;
     protected String name;
     protected int level;
@@ -15,6 +16,7 @@ public abstract class Monster {
         this.exp=getExp(stage);
         this.name=name;
         this.level=stage;
+        this.currentHealth=health;
     }
 
     public int getDefense(){
@@ -41,6 +43,13 @@ public abstract class Monster {
         this.health = health;
     }
 
+    public int getCurrentHealth(){return currentHealth;}
+
+    public void reduceHealth(int dmg){
+        currentHealth=currentHealth-dmg;
+        System.out.println("You deal "+dmg+" damage to "+this.name);
+    }
+
    // public void setStage(int stage) {
    //     this.stage = stage;
    // }
@@ -58,7 +67,7 @@ public abstract class Monster {
         return "====level "+ level +" "+name+"====\n" +
                 "attack=" + attack +
                 "\ndefense=" + defense +
-                "\nhealth=" + health+
+                "\nhealth=" + getCurrentHealth()+"/"+health+
                 "\nexp=" + exp;
     }
 }

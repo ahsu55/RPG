@@ -1,4 +1,4 @@
-package main.java.GenerateMonster;
+package main.java.generateMonster;
 
 public class Stage {
 

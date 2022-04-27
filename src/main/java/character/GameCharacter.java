@@ -11,23 +11,32 @@ package main.java.character;
 // Attack deal min damage of 1
 
 import main.java.equipment.Equipment;
+import main.java.poison.Poison;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public abstract class GameCharacter{
 
         protected int attack;
         protected int defense;
         protected int health;
+        protected int currentHealth=0;
         protected int mana;
+        protected int currentMana=0;
         protected int agility;
         protected int level=1;
         protected String race;
+        protected String classType;
         protected String passiveSkill;
         protected String passiveSkillInfo;
         protected String skill;
         protected String skillEffect;
         protected String name;
+        protected LinkedList<Poison> poisons = new LinkedList<>();
         protected HashMap <String,Equipment> equiptment = new HashMap<>();
 
 
@@ -37,7 +46,7 @@ public abstract class GameCharacter{
 
         public String bio(){
 
-            return "Name: "+ name +"\nRace: "+race+"\n";
+            return "Name : "+ name +"\nRace : "+race+"\n"+"Class: "+classType+"\n";
         }
 
     //    public abstract String equipment();
@@ -59,14 +68,12 @@ public abstract class GameCharacter{
         public int getHealth(){
             return health;
         }
-
         public int getLevel(){
             return level;
     }
         public int getMana(){
             return mana;
         }
-
         public int getAgility(){
             return agility;
         }
@@ -88,6 +95,12 @@ public abstract class GameCharacter{
 
         public String getPassiveSkillInfo(){
             return passiveSkillInfo;
+        }
+        public void setClass(String classType){this.classType=classType;
+        }
+
+        public void restoreAll(){
+
         }
 
         public String getName(){
@@ -114,15 +127,58 @@ public abstract class GameCharacter{
 
         }
 
+        public void addPoisons(Poison poison){
+            poisons.add(poison);
+        }
+        // no error handling when select the wrong index for poison yet
+        public String checkPoison() throws IOException {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String selection="";
+            if (poisons.isEmpty()){
+                System.out.println("Your bag is empty");
+                selection="-1";
+            }else{
+                System.out.println("Select poison");
+                for (int i=0;i<poisons.size();i++) {
+                    System.out.println((i + 1) + ")" + poisons.get(i));
+                }
+                selection=reader.readLine();
+
+            }
+            return selection;
+        }
+
+        public void usePoison(int idx){
+
+        }
+
+
+        public int getCurrentHealth(){
+            return currentHealth;
+        }
+        public int getCurrentMana(){
+            return currentMana;
+        }
+
+        public void setCurrentHealth(int currentHealth) {
+            this.currentHealth = currentHealth;
+        }
+
+        public void setCurrentMana(int currentMana) {
+            this.currentMana = currentMana;
+        }
+
+        public void useMana(int cost){}
+        public void reduceHealth(int dmg){}
+
+
     public String toString(){
         return "=========Bio=========\n"+"Level: "+getLevel()+"\n"+bio()+"========Stats========\n"+ "Attack: "+
-                getAttack()+"\nDefense: "+getDefense()+"\nHealth: "+getHealth()+"\nMana: "+getMana()+
+                getAttack()+"\nDefense: "+getDefense()+"\nHealth: "+getCurrentHealth()+"/"+getHealth()+"\nMana: "+getMana()+
                 "\nAgility: "+getAgility()+"\n====Passive Skill====\n"+getPassiveSkill()+": "+getPassiveSkillInfo();
     }
 
 
-
-
-
-
+    public void init() {
     }
+}
