@@ -1,7 +1,6 @@
 package main.java.dungeon;
 
 import main.java.character.GameCharacter;
-import main.java.generateMonster.Stage;
 import main.java.monster.Monster;
 
 import java.io.BufferedReader;
@@ -9,35 +8,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
 
-public class Battle {
-    GameCharacter player;
-    Monster monster;
-    int finished=0;
-
-    public Battle(GameCharacter player, int stage) throws IOException {
+public class PlayerAction implements Round{
+        GameCharacter player;
+        Monster monster;
+    @Override
+    public int RoundAction(RoundState roundState, GameCharacter player, Monster monster) throws IOException {
         this.player=player;
-        this.monster=new Stage(stage).generateMonster();
-        RoundState turn;
-        if (player.getAgility()>=monster.getAglity()){
-            turn = new RoundState(new PlayerAction());
-        }else{
-            turn = new RoundState(new MonsterAction());
-        }
-        //finished 0 battle ongoing, 1 monster dead, 2 player dead
-        while (finished==0){
-            finished = turn.RoundAction(player,monster);
-            System.out.println("Next round");
-        }
-        if (finished==1)
-            System.out.println("You defeated "+monster.getClass().getSimpleName());
-        else if (finished==2)
-            System.out.println("You are dead");
-
-        ///generate random award, get options and actions then finish the battle
-
-    }
-
-    public boolean PlayerAction() throws IOException {
+        this.monster=monster;
         boolean action=false;
         boolean monsterDead=false;
         int damage;
@@ -86,49 +63,12 @@ public class Battle {
 
             }
         }
+        roundState.setState(new MonsterAction());
         if (monster.getCurrentHealth()<=0)
-            return true;
-        return monsterDead;
-    }
-    public boolean MonsterAction() {
-        int damage;
-        boolean playerDead=false;
-        damage = GetMondyrtDamage();
-        player.reduceHealth(damage);
-        if (player.getCurrentHealth()<=0)
-            return true;
-        return playerDead;
-    }
-
-
-    public int GetPlayerDamage() {
-            int dodge=5;
-            Random missed = new Random();
-            if (missed.nextInt(100)<dodge)
-                return 0;
-            else if (this.player.getAttack()>this.monster.getDefense())
-                return player.getAttack()-monster.getDefense();
-            else
-                return 1;
-   }
-
-    public int GetMondyrtDamage() {
-        int dodge=5+player.getAgility()/10;
-        Random missed = new Random();
-        if (missed.nextInt(100)<dodge)
-            return 0;
-        else if (monster.getAttack()>player.getDefense())
-            return monster.getAttack()-player.getDefense();
-        else
             return 1;
+        return 0;
     }
 
-    public boolean HasMana(){
-        if (player.getCurrentMana()>=5){
-            return true;
-        }else
-            return false;
-    }
 
     public String getAction() throws IOException {
         boolean vaild=false;
@@ -144,6 +84,21 @@ public class Battle {
         return option;
     }
 
-
+    public int GetPlayerDamage() {
+        int dodge=5;
+        Random missed = new Random();
+        if (missed.nextInt(100)<dodge)
+            return 0;
+        else if (this.player.getAttack()>this.monster.getDefense())
+            return player.getAttack()-monster.getDefense();
+        else
+            return 1;
+    }
+    public boolean HasMana(){
+        if (player.getCurrentMana()>=5){
+            return true;
+        }else
+            return false;
+    }
 }
 

@@ -8,6 +8,7 @@ import main.java.classType.Archer;
 import main.java.classType.Paladin;
 import main.java.classType.Warrior;
 import main.java.factory.CharacterFactory;
+import main.java.dungeon.Battle;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,8 +16,8 @@ import java.io.InputStreamReader;
 
 public class DarkestSer implements Runnable{
 
-    int level =0;
-
+    int level =1;
+    Battle battlefield;
 
     @Override
     public void run() {
@@ -29,6 +30,8 @@ public class DarkestSer implements Runnable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
 
 
         System.out.println(player);

@@ -97,9 +97,12 @@ public abstract class ClassType extends GameCharacter {
         }
     }
 
-    public void reduceHealth(int damange){
-        character.setCurrentHealth(getHealth()-damange);
-        System.out.println("You took "+damange+" damages HP: "+character.getCurrentHealth()+"/"+getHealth());
+    public void reduceHealth(int damage){
+        character.setCurrentHealth(character.getCurrentHealth()-damage);
+        if (damage==0)
+            System.out.println("You dodge an attack ");
+        else
+            System.out.println("You took "+damage+" damages HP: "+character.getCurrentHealth()+"/"+getHealth());
     }
 
     public void usePoison(int idx){

@@ -5,14 +5,16 @@ public abstract class Monster {
     protected int defense;
     protected int health;
     protected int currentHealth;
+    protected int agility;
     protected int exp;
     protected String name;
     protected int level;
 
-    public Monster(int attack,int defense,int health,int stage,String name){
+    public Monster(int attack,int defense,int health,int agility,int stage,String name){
         this.attack=attack;
         this.defense=defense;
         this.health=health;
+        this.agility=agility;
         this.exp=getExp(stage);
         this.name=name;
         this.level=stage;
@@ -31,6 +33,8 @@ public abstract class Monster {
         return attack;
     }
 
+    public int getAglity() {return agility;}
+
     public void setAttack(int attack) {
         this.attack = attack;
     }
@@ -47,6 +51,9 @@ public abstract class Monster {
 
     public void reduceHealth(int dmg){
         currentHealth=currentHealth-dmg;
+        if (dmg==0){
+            System.out.println("Your attack missed");
+        }
         System.out.println("You deal "+dmg+" damage to "+this.name);
     }
 
