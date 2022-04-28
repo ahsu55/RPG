@@ -182,6 +182,8 @@ public abstract class ClassType extends GameCharacter {
 
     public int getEquipmentMana(){
         int total=0;
+        if (equiptment.containsKey("Armor"))
+            total+=equiptment.get("Armor").getMana();
         //  for (int i=0;i<equiptment.size();i++){
         //      total+=equiptment.get("Armor").getHealth();
         //  }

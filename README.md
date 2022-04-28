@@ -1,15 +1,38 @@
+
+
+#GitHub
+https://github.com/ahsu55/Design-Patterns.git
 # Design-Patterns
 
-### Singleton:Rpg.java
+## Singleton:Rpg.java, package dungeon
 For starting the game
-### Abstract Factory: package equipment, character, classType,poison, monster
+## Abstract Factory: package equipment, character, classType,poison, monster
 Giving different states and type for the equipments, characters, monsters and poisons
-### Factory: package factory
+## Factory: package factory
 For building character class and race
-### Decorator: package classType
+## Decorator: package classType
 Archer,Paladin,Warrior is a decorator of the game character, the game in the future could level up and transform to different class type when reach certain level instead of choose the class type in the beggining of the game.
-### Mediator: RoundState.java
+## Mediator: RoundState.java
 Tick-based battle system
+
+
+## Spotbugs
+
+## Check style
+
+## GitHub actions
+![img_2.png](img_2.png)
+https://github.com/ahsu55/Design-Patterns/actions
+
+## Jacoco report
+Since the package dungeon is a singleton, it was difficult to cover everything there, but should achieve 70% code coverage excludes the main and the getter, setter.
+![img.png](img.png)
+
+## JUnit test
+![img_1.png](img_1.png)
+
+## Screencast
+https://youtu.be/c65RV2pl6YE
 
 
 

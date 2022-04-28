@@ -7,8 +7,13 @@ import main.java.character.Orc;
 import main.java.classType.Archer;
 import main.java.classType.Paladin;
 import main.java.classType.Warrior;
+import main.java.equipment.ChestArmor;
+import main.java.equipment.ClothBoots;
+import main.java.equipment.LongSword;
 import main.java.factory.CharacterFactory;
 import main.java.dungeon.Battle;
+import main.java.poison.HealthPoison;
+import main.java.poison.ManaPoison;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,6 +35,15 @@ public class DarkestSer implements Runnable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(player);
+        player.addPoisons(new HealthPoison());
+        player.addPoisons(new HealthPoison());
+        player.addPoisons(new HealthPoison());
+        player.addPoisons(new ManaPoison());
+        player.wearEquipment(new LongSword());
+        player.wearEquipment(new ClothBoots());
+        player.wearEquipment(new ChestArmor());
+        System.out.println(player);
 
         Battle b = null;
         try {
