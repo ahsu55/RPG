@@ -17,7 +17,7 @@ import java.io.InputStreamReader;
 public class DarkestSer implements Runnable{
 
     int level =1;
-    Battle battlefield;
+  //  Battle battlefield;
 
     @Override
     public void run() {
@@ -31,10 +31,36 @@ public class DarkestSer implements Runnable{
             e.printStackTrace();
         }
 
+        Battle b = null;
+        try {
+            b = new Battle(player,1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Boolean gameover=false;
+        while (!gameover) {
+            try {
+                b = new Battle(player, b.getStage());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (b.getStage()==21) {
+                System.out.println("GAME CLEAR");
+                gameover=true;
+            }else if (b.getStage()==-1){
+                System.out.println("GAME OVER, YOU LOSE");
+                gameover=true;
+            }else if (b.getStage()==1){
+                player.init();
+                System.out.println("Back to floor 1\n");
+            }
+        }
+        System.out.println("Thank you for playing the game");
 
 
 
-        System.out.println(player);
+
+      //  System.out.println(player);
       //  player = newCharacter.makeCharacterRace();
 
       //  boolean alive=true;
@@ -87,6 +113,7 @@ public class DarkestSer implements Runnable{
                     System.out.println("Invalid input, please try again");
             }
             player= newCharacter.makeCharacterClass(classType);
+            player.init();
             System.out.println(player);
             while (!createConfirm) {
                 System.out.println("\nConfirm?Y/N");
@@ -105,6 +132,7 @@ public class DarkestSer implements Runnable{
             raceType=false;
             createConfirm=false;
         }
+
         return player;
 
     }

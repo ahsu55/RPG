@@ -20,7 +20,7 @@ public class PlayerAction implements Round{
         int damage;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String option=getAction();
-        // 1 attack, 2 skill, 3 potion
+        // 1 attack, 2 skill, 3 potion, 4 stats
         while (!action) {
             switch (option) {
                 case "1":
@@ -57,9 +57,24 @@ public class PlayerAction implements Round{
                     break;
                 case "3":
                     String idx = player.checkPoison();
-                    player.usePoison(Integer.parseInt(idx));
+                    if (idx.equals("-1")){
+                        System.out.println("You don't have any poisons");
+                        option=getAction();
+                    }else {
+                        player.usePoison(Integer.parseInt(idx));
+                        action = true;
+                    }
+                    break;
+                case "4":
+                    System.out.println(player);
+                    option=getAction();
+                    break;
+                    //for testing
+                case "-100":
+                    player.reduceHealth(10);
                     action=true;
                     break;
+
 
             }
         }
@@ -75,9 +90,9 @@ public class PlayerAction implements Round{
         String option="";
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while(!vaild) {
-            System.out.println("1)Attack\n2)Skill\n3)User poison");
+            System.out.println("1)Attack\n2)Skill\n3)User poison\n4)Stats");
             option = reader.readLine();
-            if (option.equals("1")||option.equals("2")||option.equals("3"))
+            if (option.equals("1")||option.equals("2")||option.equals("3")||option.equals("4")||option.equals("-100"))
                 vaild=true;
             else System.out.println("Invalid input");
         }

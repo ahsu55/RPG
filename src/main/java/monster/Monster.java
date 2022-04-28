@@ -15,7 +15,7 @@ public abstract class Monster {
         this.defense=defense;
         this.health=health;
         this.agility=agility;
-        this.exp=getExp(stage);
+        this.exp=calculatetExp(stage);
         this.name=name;
         this.level=stage;
         this.currentHealth=health;
@@ -60,13 +60,21 @@ public abstract class Monster {
    // public void setStage(int stage) {
    //     this.stage = stage;
    // }
-    public int getExp(int stage){
+    public int calculatetExp(int stage){
       //  int exp=0;
         int sum=0;
         for (int i=0;i<=stage;i++){
             sum+=i;
         }
         return sum*20;
+    }
+
+    public int getExp(){
+        return exp;
+    }
+
+    public String getName(){
+        return name;
     }
 
     @Override

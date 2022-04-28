@@ -97,6 +97,17 @@ public abstract class ClassType extends GameCharacter {
         }
     }
 
+    public void levelUp(){
+        character.levelUp();
+    }
+    public void gainExp(int exp){
+        character.gainExp(exp);
+    }
+
+    public int getLevel(){
+        return character.getLevel();
+    }
+
     public void reduceHealth(int damage){
         character.setCurrentHealth(character.getCurrentHealth()-damage);
         if (damage==0)

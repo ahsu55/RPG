@@ -1,6 +1,8 @@
 package main.java.rpg;
 
 import main.java.dungeon.Battle;
+import main.java.equipment.ChestArmor;
+import main.java.equipment.ClothBoots;
 import main.java.equipment.LongSword;
 // import main.java.levelUp.LevelUp;
 import main.java.factory.CharacterFactory;
@@ -30,14 +32,15 @@ public class Rpg {
      * @param args arguments
      */
     public static void main(String[] args) throws IOException {
-      //  /**
+        /**
         CharacterFactory newCharacter = new CharacterFactory();
         main.java.character.GameCharacter player;
         player = newCharacter.makeCharacterRace("Jaina","h");
-     //   System.out.println(player+"\n\n");
         player = newCharacter.makeCharacterClass("p");
        // System.out.println(player);
         player.wearEquipment(new LongSword());
+        player.wearEquipment(new ChestArmor());
+        player.wearEquipment(new ClothBoots());
         player.init();
         System.out.println(player);
         player.addPoisons(new HealthPoison());
@@ -45,20 +48,30 @@ public class Rpg {
         player.addPoisons(new HealthPoison());
         player.addPoisons(new ManaPoison());
 
-        String option ;
-        player.useMana(3);
-        player.reduceHealth(15);
-    //    option = player.checkPoison();
-   //     player.usePoison(Integer.parseInt(option));
-   //     option = player.checkPoison();
 
-  //      player.usePoison(Integer.parseInt(option));
- //       option = player.checkPoison();
-        //    monster = new Stage(2).generateMonster();
-     //   Monster monster = new Stage(2).generateMonster();
-      //  System.out.println(monster);
-     //   System.out.println(player);
-        Battle b = new Battle(player,2);
+
+        Battle b = new Battle(player,1);
+        Boolean gameover=false;
+        while (!gameover) {
+            b = new Battle(player, b.getStage());
+            if (b.getStage()==21) {
+                System.out.println("GAME CLEAR");
+                gameover=true;
+            }else if (b.getStage()==-1){
+                System.out.println("GAME OVER, YOU LOSE");
+                gameover=true;
+            }else if (b.getStage()==1){
+                player.init();
+                System.out.println("Back to floor 1\n");
+            }
+        }
+        System.out.println("Thank you for playing the game");
+   //     b = new Battle(player,b.getStage());
+   //     b = new Battle(player,b.getStage());
+   //     b = new Battle(player,b.getStage());
+   //     b = new Battle(player,b.getStage());
+   //     b = new Battle(player,b.getStage());
+
     //    b.PlayerAction();
     //    b = new Battle(player,3);
     //    b.PlayerAction();
@@ -70,9 +83,9 @@ public class Rpg {
      //   player.levelUp();
      //   player.levelUp();
      //   player.levelUp();
-     //    */
-     //   DarkestSer ser = new DarkestSer();
-     //   ser.run();
+         */
+       DarkestSer ser = new DarkestSer();
+        ser.run();
       //  System.out.println(player);
 
     //    Monster monster;
