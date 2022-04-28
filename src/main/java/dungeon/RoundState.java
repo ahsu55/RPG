@@ -15,8 +15,8 @@ public class RoundState {
         round=newRound;
     }
 
-    public int RoundAction(GameCharacter player, Monster monster) throws IOException {
-        return round.RoundAction(this,player, monster);
+    public int roundAction(GameCharacter player, Monster monster) throws IOException {
+        return round.roundAction(this,player, monster);
 
     }
 }

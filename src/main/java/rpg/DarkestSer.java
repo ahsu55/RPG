@@ -7,22 +7,29 @@ import main.java.character.Orc;
 import main.java.classType.Archer;
 import main.java.classType.Paladin;
 import main.java.classType.Warrior;
+import main.java.equipment.ChestArmor;
+import main.java.equipment.ClothBoots;
+import main.java.equipment.LongSword;
 import main.java.factory.CharacterFactory;
 import main.java.dungeon.Battle;
+import main.java.poison.HealthPoison;
+import main.java.poison.ManaPoison;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class DarkestSer implements Runnable{
-
-    int level =1;
-  //  Battle battlefield;
-
+    
     @Override
     public void run() {
-        GameCharacter player=null;
+        GameCharacter player ;
 
+        //create default player type
+        CharacterFactory factory = new CharacterFactory();
+        player=factory.makeCharacterRace("default","h");
+        player=factory.makeCharacterClass("o");
 
         System.out.println("Welcome to the Darkest SER");
         try {
@@ -30,6 +37,15 @@ public class DarkestSer implements Runnable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(player);
+        player.addPoisons(new HealthPoison());
+        player.addPoisons(new HealthPoison());
+        player.addPoisons(new HealthPoison());
+        player.addPoisons(new ManaPoison());
+        player.wearEquipment(new LongSword());
+        player.wearEquipment(new ClothBoots());
+        player.wearEquipment(new ChestArmor());
+        System.out.println(player);
 
         Battle b = null;
         try {
@@ -71,7 +87,7 @@ public class DarkestSer implements Runnable{
     public GameCharacter initCharacter() throws IOException {
         CharacterFactory newCharacter = new CharacterFactory();
         GameCharacter player = null;
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
         String name;
         String race = null;
         String classType = null;
@@ -92,6 +108,8 @@ public class DarkestSer implements Runnable{
                 System.out.println("e)Elf");
                 System.out.println(new Elf("").passive());
                 race = reader.readLine();
+                if (race==null)
+                    race="h";
                 if (race.equals("h") || race.equals("o") || race.equals("e"))
                     raceType = true;
                 else
@@ -107,6 +125,8 @@ public class DarkestSer implements Runnable{
                 System.out.println("w)Warrior");
                 System.out.println(new Warrior(player).ability());
                 classType = reader.readLine();
+                if (classType==null)
+                    classType="a";
                 if (classType.equals("a") || classType.equals("p") || classType.equals("w"))
                     classConfirm = true;
                 else
@@ -118,6 +138,8 @@ public class DarkestSer implements Runnable{
             while (!createConfirm) {
                 System.out.println("\nConfirm?Y/N");
                 create = reader.readLine();
+                if (create==null)
+                    create="Y";
                 if (create.equals("Y")) {
                     confirm = true;
                     createConfirm=true;

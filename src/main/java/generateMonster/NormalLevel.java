@@ -12,7 +12,7 @@ public class NormalLevel implements MonsterLevel {
           this.stageLevel=newStateStage.stageLevel;
      }
      @Override
-     public Monster GenerateMonster() {
-          return new NormalMonster(stageLevel, RandomMonster.RandomMonster());
+     public Monster generateMonster() {
+          return new NormalMonster(stageLevel, RandomMonster.randomMonster());
      }
 }

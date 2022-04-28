@@ -12,8 +12,8 @@ public class MediumLevel implements MonsterLevel {
           this.stageLevel=newStateStage.stageLevel;
      }
      @Override
-     public Monster GenerateMonster() {
-          return new MediumMonster(stageLevel, RandomMonster.RandomMonster());
+     public Monster generateMonster() {
+          return new MediumMonster(stageLevel, RandomMonster.randomMonster());
      }
 
 }

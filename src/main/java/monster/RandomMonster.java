@@ -3,7 +3,7 @@ package main.java.monster;
 import java.util.ArrayList;
 
 public class RandomMonster {
-    public static String RandomMonster(){
+    public static String randomMonster(){
         ArrayList<String> catalog = new ArrayList<>();
         catalog.add("Bat");
         catalog.add("Snake");

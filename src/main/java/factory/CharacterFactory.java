@@ -23,6 +23,9 @@ public class CharacterFactory {
             case "o":
                 newCharacter = new Orc(name);
                 break;
+            default:
+                newCharacter = new Orc(name);
+                break;
         }
         return newCharacter;
     }

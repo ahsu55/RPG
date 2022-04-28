@@ -9,7 +9,9 @@ apply plugin: 'jacoco'
 
 mainClassName = 'main.java.rpg.Rpg'
 compileJava.options.encoding = 'UTF-8'
-
+ test {
+     exclude '**/Rpg.class'
+ }
 // In this section you declare where to find the dependencies of your project
 repositories {
     jcenter()

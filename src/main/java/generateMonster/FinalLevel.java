@@ -12,7 +12,7 @@ public class FinalLevel implements MonsterLevel {
           this.stageLevel=newStateStage.stageLevel;
      }
      @Override
-     public Monster GenerateMonster() {
-          return new FinalBoss(stageLevel, RandomMonster.RandomMonster());
+     public Monster generateMonster() {
+          return new FinalBoss(stageLevel, RandomMonster.randomMonster());
      }
 }

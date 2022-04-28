@@ -8,10 +8,6 @@ public class Stage {
 
      public Stage(int stageLevel){
           this.stageLevel=stageLevel;
-     //     normal =
-    //      medium =
-   //       boss =
-   //       finalBoss =
 
           if (stageLevel==20){
                currentMonsterLevel =new FinalLevel(this);;
@@ -32,6 +28,6 @@ public class Stage {
      }
 
      public main.java.monster.Monster generateMonster(){
-          return currentMonsterLevel.GenerateMonster();
+          return currentMonsterLevel.generateMonster();
      }
 }
