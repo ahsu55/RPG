@@ -43,7 +43,7 @@ public class Battle {
             System.out.println("You are dead");
         }else if (finished==-1) {
             this.stage=-1;
-            System.out.println("You are dead\n GAME OVER");
+            System.out.println("You are dead");
         }
 
         ///generate random award, get options and actions then finish the battle

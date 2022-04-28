@@ -38,7 +38,6 @@ public class MonsterAction implements Round{
         damage = GetMonsterDamage();
         player.reduceHealth(damage);
         roundState.setState(new PlayerAction());
-        System.out.println("PLAYER CURRENT HEALTH at Final:"+player.getCurrentHealth());
         if (player.getCurrentHealth()<=0)
             return -1;
         return 0;
