@@ -4,16 +4,13 @@ import main.java.character.GameCharacter;
 import main.java.generateMonster.Stage;
 import main.java.monster.Monster;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Random;
 
 public class Battle {
-    GameCharacter player;
-    Monster monster;
-    int finished=0;
-    int stage;
+    private GameCharacter player;
+    protected Monster monster;
+    protected int finished=0;
+    protected int stage;
 
     public Battle(GameCharacter player, int stage) throws IOException {
         this.player=player;
@@ -29,7 +26,7 @@ public class Battle {
         }
         //finished 0 battle ongoing, 1 monster dead, 2 player dead
         while (finished==0){
-            finished = turn.RoundAction(player,monster);
+            finished = turn.roundAction(player,monster);
             System.out.println("Next round");
         }
         if (finished==1) {

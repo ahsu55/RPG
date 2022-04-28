@@ -28,6 +28,6 @@ public class Stage {
      }
 
      public main.java.monster.Monster generateMonster(){
-          return currentMonsterLevel.GenerateMonster();
+          return currentMonsterLevel.generateMonster();
      }
 }

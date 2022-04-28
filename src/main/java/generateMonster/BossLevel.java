@@ -11,8 +11,8 @@ public class BossLevel implements MonsterLevel {
           state=newStateStage;
           this.stageLevel=newStateStage.stageLevel;
      }
-     public Monster GenerateMonster() {
+     public Monster generateMonster() {
 
-          return new Boss(stageLevel, RandomMonster.RandomMonster());
+          return new Boss(stageLevel, RandomMonster.randomMonster());
      }
 }

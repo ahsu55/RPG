@@ -16,6 +16,7 @@ import main.java.poison.Poison;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -35,7 +36,7 @@ public abstract class GameCharacter{
         protected String passiveSkill;
         protected String passiveSkillInfo;
         protected String skill;
-        protected String skillEffect;
+   //     protected String skillEffect="";
         protected String name;
         protected LinkedList<Poison> poisons = new LinkedList<>();
         protected HashMap <String,Equipment> equiptment = new HashMap<>();
@@ -87,9 +88,9 @@ public abstract class GameCharacter{
             this.equiptment.put(equipment.getType(),equipment);
         }
 
-        public String getSkillEffect(){
-            return skillEffect;
-        }
+  //      public String getSkillEffect(){
+  //          return skillEffect;
+   //     }
         public String getPassiveSkill(){
             return passiveSkill;
         }
@@ -159,8 +160,8 @@ public abstract class GameCharacter{
         }
         // no error handling when select the wrong index for poison yet
         public String checkPoison() throws IOException {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            String selection="";
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
+            String selection="-1";
             if (poisons.isEmpty()){
                 System.out.println("Your bag is empty");
                 selection="-1";

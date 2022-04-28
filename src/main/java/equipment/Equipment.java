@@ -8,7 +8,7 @@ public abstract class Equipment {
   //  protected String equipmentType;
   //  protected String equipmentName;
     protected String name;
-    protected String type;
+    final String type;
     protected int attack;
     protected int defense;
     protected int health;

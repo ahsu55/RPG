@@ -17,9 +17,12 @@ Tick-based battle system
 
 
 ## Spotbugs
-
+For the six performance warnings, not able to get rid of it because it was an abstract class, the class doesn't use the field but all the subclasses does.
+And there just no way to initialize the character 
+![img_4.png](img_4.png)
 ## Check style
-
+Not yet fixed anything yet
+![img_3.png](img_3.png)
 ## GitHub actions
 ![img_2.png](img_2.png)
 https://github.com/ahsu55/Design-Patterns/actions
