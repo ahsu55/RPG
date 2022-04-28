@@ -21,8 +21,8 @@ For the six performance warnings, not able to get rid of it because it was an ab
 And there just no way to initialize the character 
 ![img_4.png](img_4.png)
 ## Check style
-Not yet fixed anything yet
-![img_3.png](img_3.png)
+Not yet fixed everything yet
+![img_5.png](img_5.png)
 ## GitHub actions
 ![img_2.png](img_2.png)
 https://github.com/ahsu55/Design-Patterns/actions
